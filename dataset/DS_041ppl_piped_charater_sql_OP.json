@@ -1,0 +1,17 @@
+{
+	"name": "DS_041ppl_piped_charater_sql_OP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "ordersnew4"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,51 @@
+{
+	"name": "DS_070_AZURE_SQL_OP_1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"paramSinkTableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "TableName",
+				"type": "varchar"
+			},
+			{
+				"name": "SourceRows",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "SinkRows",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "CopyStatus",
+				"type": "varchar"
+			},
+			{
+				"name": "IsActive",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": {
+				"value": "@split(dataset().paramSinkTableName,'.')[0]",
+				"type": "Expression"
+			},
+			"table": {
+				"value": "@split(dataset().paramSinkTableName,'.')[1]",
+				"type": "Expression"
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

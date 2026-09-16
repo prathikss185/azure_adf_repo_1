@@ -1,0 +1,17 @@
+{
+	"name": "ds_sinkindia",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tblindia2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

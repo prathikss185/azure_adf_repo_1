@@ -1,0 +1,43 @@
+{
+	"name": "ds_Jsontodb",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Json",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "OrdersNew.json",
+				"folderPath": "output",
+				"fileSystem": "mycontaineradlstorage29071"
+			}
+		},
+		"schema": {
+			"type": "object",
+			"properties": {
+				"OrderDate": {
+					"type": "string"
+				},
+				"ProductKey": {
+					"type": "string"
+				},
+				"Country": {
+					"type": "string"
+				},
+				"EnglishProductName": {
+					"type": "string"
+				},
+				"SalesAmount": {
+					"type": "string"
+				},
+				"TaxAmt": {
+					"type": "string"
+				}
+			}
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

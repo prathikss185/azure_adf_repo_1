@@ -1,0 +1,17 @@
+{
+	"name": "LS_localfile",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "FileServer",
+		"typeProperties": {
+			"host": "D:\\ms_sql\\migfolder",
+			"userId": "DESKTOP-SLAPF4A\\adfsvc",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiIzZjMxYTM2MS1jYWMyLTQzMjktOTRkNS1mOTVmZGVmODQyNmMiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "selfhostedIR",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

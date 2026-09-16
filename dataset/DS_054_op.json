@@ -1,0 +1,17 @@
+{
+	"name": "DS_054_op",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tblrank"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

@@ -1,0 +1,17 @@
+{
+	"name": "ds_49_op1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tblcast"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

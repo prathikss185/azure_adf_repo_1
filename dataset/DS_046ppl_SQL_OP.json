@@ -1,0 +1,17 @@
+{
+	"name": "DS_046ppl_SQL_OP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tblfilter"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

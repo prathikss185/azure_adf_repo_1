@@ -1,0 +1,17 @@
+{
+	"name": "DS_045ppl_sorttrans_op",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tblsort"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

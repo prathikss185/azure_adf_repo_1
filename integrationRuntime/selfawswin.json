@@ -1,0 +1,7 @@
+{
+	"name": "selfawswin",
+	"properties": {
+		"type": "SelfHosted",
+		"description": "selfawswin"
+	}
+}

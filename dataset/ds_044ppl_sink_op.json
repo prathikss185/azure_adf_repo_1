@@ -1,0 +1,17 @@
+{
+	"name": "ds_044ppl_sink_op",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tblselect"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

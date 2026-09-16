@@ -1,0 +1,17 @@
+{
+	"name": "DS_048_india_OP",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "tblindia"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

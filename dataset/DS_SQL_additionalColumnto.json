@@ -1,0 +1,17 @@
+{
+	"name": "DS_SQL_additionalColumnto",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "yworders_2"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

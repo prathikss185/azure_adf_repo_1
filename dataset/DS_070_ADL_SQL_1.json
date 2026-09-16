@@ -1,0 +1,40 @@
+{
+	"name": "DS_070_ADL_SQL_1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "TableName",
+				"type": "varchar"
+			},
+			{
+				"name": "SourceRows",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "SinkRows",
+				"type": "bigint",
+				"precision": 19
+			},
+			{
+				"name": "CopyStatus",
+				"type": "varchar"
+			},
+			{
+				"name": "IsActive",
+				"type": "bit"
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "TblMappings"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

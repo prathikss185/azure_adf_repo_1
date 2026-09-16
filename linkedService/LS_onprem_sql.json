@@ -1,0 +1,21 @@
+{
+	"name": "LS_onprem_sql",
+	"type": "Microsoft.DataFactory/factories/linkedservices",
+	"properties": {
+		"annotations": [],
+		"type": "SqlServer",
+		"typeProperties": {
+			"server": "EC2AMAZ-ELGA63T",
+			"database": "AdventureWorksDW",
+			"encrypt": "mandatory",
+			"trustServerCertificate": false,
+			"authenticationType": "Windows",
+			"userName": "adfiruser",
+			"encryptedCredential": "eyJDcmVkZW50aWFsSWQiOiJiMjZlZDIxYS03Yzg4LTQ3YWEtOGM5Ni1mNjA4NTk2MTE3OGIiLCJWZXJzaW9uIjoiMi4wIiwiQ2xhc3NUeXBlIjoiTWljcm9zb2Z0LkRhdGFQcm94eS5Db3JlLkludGVyU2VydmljZURhdGFDb250cmFjdC5DcmVkZW50aWFsU1UwNkNZMTQifQ=="
+		},
+		"connectVia": {
+			"referenceName": "selfawswin",
+			"type": "IntegrationRuntimeReference"
+		}
+	}
+}

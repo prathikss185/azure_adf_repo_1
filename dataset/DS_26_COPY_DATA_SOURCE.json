@@ -1,0 +1,41 @@
+{
+	"name": "DS_26_COPY_DATA_SOURCE",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"ParamCountryName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": {
+					"value": "@concat('output/',dataset().ParamCountryName)",
+					"type": "Expression"
+				},
+				"fileSystem": "mycontaineradlstorage29071"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "COUNTRY",
+				"type": "String"
+			},
+			{
+				"name": "REGION",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

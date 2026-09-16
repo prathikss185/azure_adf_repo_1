@@ -1,0 +1,92 @@
+{
+	"name": "dataflow1_048_1",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_0046ppl_source_1",
+						"type": "DatasetReference"
+					},
+					"name": "readcsv"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_sinkindia",
+						"type": "DatasetReference"
+					},
+					"name": "sinkindia"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_sinkaustralia",
+						"type": "DatasetReference"
+					},
+					"name": "sinkaustralia"
+				},
+				{
+					"dataset": {
+						"referenceName": "ds_sinkfrance",
+						"type": "DatasetReference"
+					},
+					"name": "sinkfrance"
+				}
+			],
+			"transformations": [
+				{
+					"name": "country"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          OrderDate as date 'dd-MM-yyyy',",
+				"          ProductKey as short,",
+				"          Country as string,",
+				"          EnglishProductName as string,",
+				"          SalesAmount as double,",
+				"          TaxAmt as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> readcsv",
+				"readcsv split(Country=='India',",
+				"     Country=='France',",
+				"     Country=='Australia',",
+				"     disjoint: false) ~> country@(India, France, Australia)",
+				"country@India sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkindia",
+				"country@Australia sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkaustralia",
+				"country@France sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sinkfrance"
+			]
+		}
+	}
+}

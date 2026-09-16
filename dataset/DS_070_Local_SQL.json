@@ -1,0 +1,13 @@
+{
+	"name": "DS_070_Local_SQL",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_from_local_sql_db",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "SqlServerTable",
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

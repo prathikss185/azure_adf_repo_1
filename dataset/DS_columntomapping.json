@@ -1,0 +1,37 @@
+{
+	"name": "DS_columntomapping",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [
+			{
+				"name": "Date",
+				"type": "datetime",
+				"precision": 23,
+				"scale": 3
+			},
+			{
+				"name": "country",
+				"type": "char"
+			},
+			{
+				"name": "englishprod",
+				"type": "char"
+			},
+			{
+				"name": "salevalue",
+				"type": "int",
+				"precision": 10
+			}
+		],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "purchsing"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

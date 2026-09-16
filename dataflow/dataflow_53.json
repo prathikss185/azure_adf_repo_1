@@ -1,0 +1,64 @@
+{
+	"name": "dataflow_53",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_53_ip_1",
+						"type": "DatasetReference"
+					},
+					"name": "datafromsql"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_53_OP1",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "unpivottocolumn"
+				}
+			],
+			"scriptLines": [
+				"source(output(",
+				"          EnglishProductName as string,",
+				"          Australia as double,",
+				"          Canada as double,",
+				"          France as double,",
+				"          Germany as double,",
+				"          India as double,",
+				"          Italy as double,",
+				"          {United States} as double",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     isolationLevel: 'READ_UNCOMMITTED',",
+				"     format: 'table') ~> datafromsql",
+				"datafromsql unpivot(output(",
+				"          Country as string,",
+				"          SalesAmount as double",
+				"     ),",
+				"     ungroupBy(EnglishProductName),",
+				"     lateral: true,",
+				"     ignoreNullPivots: true) ~> unpivottocolumn",
+				"unpivottocolumn sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> sink1"
+			]
+		}
+	}
+}

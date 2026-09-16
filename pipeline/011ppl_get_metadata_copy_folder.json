@@ -1,0 +1,43 @@
+{
+	"name": "011ppl_get_metadata_copy_folder",
+	"properties": {
+		"activities": [
+			{
+				"name": "011ppl_get_metadata_copy_folder",
+				"type": "GetMetadata",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "DS_csv_folder_input",
+						"type": "DatasetReference"
+					},
+					"fieldList": [
+						"itemName",
+						"childItems",
+						"lastModified",
+						"exists"
+					],
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"enablePartitionDiscovery": false
+					},
+					"formatSettings": {
+						"type": "DelimitedTextReadSettings"
+					}
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2026-07-30T05:07:55Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

@@ -1,0 +1,25 @@
+{
+	"name": "TG_storageevent_trigger",
+	"properties": {
+		"annotations": [],
+		"runtimeState": "Stopped",
+		"pipelines": [
+			{
+				"pipelineReference": {
+					"referenceName": "073ppl_storage_trigger",
+					"type": "PipelineReference"
+				}
+			}
+		],
+		"type": "BlobEventsTrigger",
+		"typeProperties": {
+			"blobPathBeginsWith": "/mycontaineradlstorage29071/blobs/input",
+			"blobPathEndsWith": ".csv",
+			"ignoreEmptyBlobs": true,
+			"scope": "/subscriptions/2be37edb-0c19-4e5c-9d05-d09440f75107/resourceGroups/cdu-dev/providers/Microsoft.Storage/storageAccounts/cdudevadlstorage29071",
+			"events": [
+				"Microsoft.Storage.BlobCreated"
+			]
+		}
+	}
+}

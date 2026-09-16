@@ -1,0 +1,62 @@
+{
+	"name": "dataflow2",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DS_077_daaflow_IP_1",
+						"type": "DatasetReference"
+					},
+					"name": "readcsv"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DS_077_sink_op_1",
+						"type": "DatasetReference"
+					},
+					"name": "pushtosqldb"
+				}
+			],
+			"transformations": [
+				{
+					"name": "filterdate"
+				},
+				{
+					"name": "addtimestampcolumn"
+				}
+			],
+			"scriptLines": [
+				"parameters{",
+				"     param_date as string ('2022-01-01')",
+				"}",
+				"source(output(",
+				"          OrderDate as date 'yyyy-MM-dd',",
+				"          ProductKey as string,",
+				"          Country as string,",
+				"          EnglishProductName as string,",
+				"          SalesAmount as string,",
+				"          TaxAmt as string",
+				"     ),",
+				"     allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     ignoreNoFilesFound: false) ~> readcsv",
+				"readcsv filter(OrderDate>toDate($param_date, 'yyyy-MM-dd')) ~> filterdate",
+				"filterdate derive(currenttimestamp = currentTimestamp()) ~> addtimestampcolumn",
+				"addtimestampcolumn sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     deletable:false,",
+				"     insertable:true,",
+				"     updateable:false,",
+				"     upsertable:false,",
+				"     format: 'table',",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     errorHandlingOption: 'stopOnFirstError') ~> pushtosqldb"
+			]
+		}
+	}
+}

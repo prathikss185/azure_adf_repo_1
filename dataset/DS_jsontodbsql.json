@@ -1,0 +1,17 @@
+{
+	"name": "DS_jsontodbsql",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_ASQL",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "AzureSqlTable",
+		"schema": [],
+		"typeProperties": {
+			"schema": "dbo",
+			"table": "data_json_dbsql"
+		}
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
